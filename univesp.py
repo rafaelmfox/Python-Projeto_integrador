@@ -14,7 +14,7 @@ def conectar_banco():
         db = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="y@Qt4PK$$1CvWE3",  # Atualize com a sua senha do MySQL
+            password="abc123",  # Atualize com a sua senha do MySQL
             database="univesp"  # Nome do banco de dados
         )
         return db
