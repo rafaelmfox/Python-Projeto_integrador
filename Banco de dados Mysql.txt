@@ -1,0 +1,50 @@
+CREATE DATABASE univesp;
+
+use univesp;
+
+
+-- Tabela tbLogin
+CREATE TABLE tbLogin (
+    cod INT PRIMARY KEY AUTO_INCREMENT,
+    usuario VARCHAR(50),
+    senha VARCHAR(50),
+    aut INT
+);
+
+insert into tbLogin(usuario, senha, aut) values ('admin', 'admin', 5);
+insert into tbLogin(usuario, senha, aut) values ('user', 'user', 1);
+
+select * from tbLogin;
+
+-- Tabela tbCadastroArmazenamento
+CREATE TABLE tbCadastroArmazenamento (
+    cod INT PRIMARY KEY AUTO_INCREMENT,
+    desc_local VARCHAR(100)
+);
+
+-- Tabela tbCadastroProdutos
+CREATE TABLE tbCadastroProdutos (
+    cod INT PRIMARY KEY AUTO_INCREMENT,
+    codArmaz INT,  -- Coluna para chave estrangeira
+    dscNome VARCHAR(100),
+    fornecedor VARCHAR(100),
+    qtdMaxima INT,
+    estadoFisico VARCHAR(50),
+    substancias VARCHAR(100),
+    numeroCas VARCHAR(50),
+    concentracao VARCHAR(10),
+    classsGHS VARCHAR(100),
+    elemento1 INT,
+    elemento2 INT,
+    elemento3 INT,
+    elemento4 INT,
+    elemento5 INT,
+    elemento6 INT,
+    elemento7 INT,
+    elemento8 INT,
+    elemento9 INT,
+    advertencia VARCHAR(50),
+    frasePerigo VARCHAR(100),
+    frasePrecaucao VARCHAR(100),
+    CONSTRAINT fk_codArmaz FOREIGN KEY (codArmaz) REFERENCES tbCadastroArmazenamento(cod)
+);
